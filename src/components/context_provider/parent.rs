@@ -20,7 +20,7 @@ pub fn Parent(props: ParentProps) -> Element {
 
     rsx! {
         div {
-            class: "flex flex-column p-2 gap-2",
+            class: "flex p-2 gap-2",
 
             button {
                 onclick: move |_| bg.with_mut(|w| *w = props.bg.to_string()),
