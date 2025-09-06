@@ -6,11 +6,15 @@ pub fn Counter() -> Element {
 
     rsx! {
         div {
-            class: "cursor-pointer select-none p-5 m-5 text-center",
-            onclick: move |_evt| {
-                counter.with_mut(|w| *w += 1)
-            },
-            "current count: {counter}"
+            "current count: "
+            button {
+                class: "w-fit",
+                title: "increment by one",
+                onclick: move |_evt| {
+                    counter.with_mut(|w| *w += 1)
+                },
+                "{counter}++"
+            }
         }
     }
 }
