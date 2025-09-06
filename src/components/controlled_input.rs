@@ -1,4 +1,4 @@
-use dioxus::prelude::*;
+use dioxus::{logger::tracing, prelude::*};
 
 #[component]
 pub fn ControlledInput() -> Element {
@@ -6,9 +6,14 @@ pub fn ControlledInput() -> Element {
 
     rsx! {
         form {
-            class: "flex flex-row items-center gap-2",
+            class: "flex flex-row gap-2",
+            onsubmit: |_| tracing::debug!("you shall not PASS/be printed ever"),
+
             label {
+                "click me to focus the input"
+
                 input {
+                    class: "ml-2",
                     placeholder: "text here",
 
                     oninput:move |evt| {
@@ -17,17 +22,17 @@ pub fn ControlledInput() -> Element {
                     },
 
                     value: "{txt}"
-                },
-                "type here something"
+                }
             }
 
             button {
                 onclick: move |evt| {
+                    // DEMO: comment this out
                     evt.prevent_default();
-                    txt.with_mut(|writable| {*writable = "preset".to_string()})
+                    txt.with_mut(|writable| { *writable = "CHEESE".to_string() })
                 },
 
-                r#"reset input to "preset""#
+                r#"say "CHEESE""#
             }
         }
     }
