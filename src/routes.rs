@@ -9,6 +9,7 @@ use crate::components::{
 pub(crate) enum Route {
     #[layout(NavBar)]
     #[layout(Container)]
+    #[redirect("/", || Route::Counter {})]
     #[route("/counter")]
     Counter {},
 
