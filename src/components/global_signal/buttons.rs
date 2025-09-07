@@ -26,6 +26,7 @@ pub fn Incrementer(props: CounterProps) -> Element {
         button {
             disabled,
             class: if disabled { "text-gray-200" },
+            style: if disabled { "cursor: not-allowed;" },
             onclick: move |_| *COUNTER.write() += props.increment_by,
             "{COUNTER} {operator} {props.increment_by.abs()}"
         }
