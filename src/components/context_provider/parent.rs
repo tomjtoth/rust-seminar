@@ -23,6 +23,7 @@ pub fn Parent(props: ParentProps) -> Element {
             class: "flex p-2 gap-2",
 
             button {
+                class: props.bg,
                 onclick: move |_| bg.with_mut(|w| *w = props.bg.to_string()),
                 "set bg of this to {props.bg}"
             }

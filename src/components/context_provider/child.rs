@@ -17,6 +17,7 @@ pub fn Child(props: ChildProps) -> Element {
         }
 
         button {
+            class: props.bg,
             onclick: move |_| *bg.write() = props.bg.to_string(),
             "set bg of this parent to {props.bg}"
         }
