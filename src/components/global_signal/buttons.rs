@@ -37,6 +37,7 @@ pub fn Incrementer(props: CounterProps) -> Element {
 pub fn Nullifier() -> Element {
     rsx! {
         button {
+            class: "my-5",
             onclick: |_| COUNTER.null_it(),
             "null it"
         }
