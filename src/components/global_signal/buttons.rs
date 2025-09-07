@@ -25,7 +25,7 @@ pub fn Incrementer(props: CounterProps) -> Element {
     rsx! {
         button {
             disabled,
-            onclick: move |_| COUNTER.with_mut(|writable| *writable += props.increment_by),
+            onclick: move |_| *COUNTER.write() += props.increment_by,
             "{COUNTER} {operator} {props.increment_by.abs()}"
         }
     }
