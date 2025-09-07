@@ -11,18 +11,16 @@ pub(super) struct CounterProps {
 pub fn Incrementer(props: CounterProps) -> Element {
     let operator = if props.increment_by > 0 { "+" } else { "-" };
 
-    let mut disabled = use_signal(|| false);
-
-    use_effect(move || {
+    let disabled = {
         if COUNTER.with(move |r| {
             let res = *r as i16 + props.increment_by as i16;
             res < i8::MIN as i16 || res > i8::MAX as i16
         }) {
-            disabled.with_mut(|dw| *dw = true)
-        } else if disabled() {
-            disabled.with_mut(|dw| *dw = false)
+            true
+        } else {
+            false
         }
-    });
+    };
 
     rsx! {
         button {
