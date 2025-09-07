@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-use crate::components::callback::handler::use_handler;
+use crate::components::callback::handler::handler;
 
 #[component]
 pub fn CallbackComponent() -> Element {
@@ -15,7 +15,7 @@ pub fn CallbackComponent() -> Element {
 
         button {
             onclick: move |_| async move {
-                use_handler(cb).await;
+                handler(cb).await;
             },
             "trigger callback"
         }
