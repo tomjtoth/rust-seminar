@@ -2,7 +2,7 @@ use dioxus::prelude::*;
 
 use crate::components::{
     container::Container, context_provider::ContextProvider, controlled_input::ControlledInput,
-    counter::Counter, navbar::NavBar,
+    counter::Counter, global_signal::FnGlobalSignal, navbar::NavBar,
 };
 
 #[derive(Clone, Routable)]
@@ -18,4 +18,7 @@ pub(crate) enum Route {
 
     #[route("/context-provider")]
     ContextProvider {},
+
+    #[route("/global-signal")]
+    FnGlobalSignal {},
 }
