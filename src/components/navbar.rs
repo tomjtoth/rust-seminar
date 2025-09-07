@@ -12,6 +12,7 @@ pub fn NavBar() -> Element {
                 li { Link {to: Route::ControlledInput {}, "controlled input"} }
                 li { Link {to: Route::ContextProvider {}, "context providers"} }
                 li { Link {to: Route::FnGlobalSignal {}, "global signals"} }
+                li { Link {to: Route::CallbackComponent {}, "callback"} }
             }
         }
 
