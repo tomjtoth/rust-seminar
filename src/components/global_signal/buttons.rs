@@ -25,6 +25,7 @@ pub fn Incrementer(props: CounterProps) -> Element {
     rsx! {
         button {
             disabled,
+            class: if disabled { "text-gray-200" },
             onclick: move |_| *COUNTER.write() += props.increment_by,
             "{COUNTER} {operator} {props.increment_by.abs()}"
         }
