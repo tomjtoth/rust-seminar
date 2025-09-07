@@ -1,4 +1,4 @@
-use dioxus::{hooks::use_signal, prelude::Callback, signals::Writable};
+use dioxus::prelude::*;
 
 pub(super) async fn use_handler(callback: Callback<u8>) {
     let mut idx = use_signal(|| 0);
