@@ -11,7 +11,7 @@ fn main() {
     {
         use dioxus::desktop::{Config, WindowBuilder};
 
-        let root_menu = components::desktop_menu::desktop_menu();
+        let root_menu = components::desktop::window_menu();
 
         dioxus::LaunchBuilder::desktop()
             .with_cfg(
@@ -37,7 +37,7 @@ fn main() {
 fn App() -> Element {
     #[cfg(feature = "desktop")]
     {
-        components::desktop_menu::use_handler();
+        components::desktop::use_menu_handlers();
     }
 
     rsx! {

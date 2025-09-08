@@ -4,6 +4,6 @@ pub mod context_provider;
 pub mod controlled_input;
 pub mod counter;
 #[cfg(feature = "desktop")]
-pub mod desktop_menu;
+pub mod desktop;
 pub mod global_signal;
 pub mod navbar;

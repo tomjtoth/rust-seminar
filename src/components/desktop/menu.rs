@@ -29,7 +29,7 @@ impl PartialEq<Menus> for &str {
     }
 }
 
-pub fn desktop_menu() -> Menu {
+pub fn window_menu() -> Menu {
     let file_menu = Submenu::with_id_and_items(
         Menus::File,
         "File",
@@ -74,7 +74,7 @@ pub fn desktop_menu() -> Menu {
     Menu::with_items(&[&file_menu, &help_menu]).unwrap()
 }
 
-pub fn use_handler() {
+pub(super) fn use_handler() {
     use_muda_event_handler(|evt| {
         if evt.id.0.as_str() == Menus::FileQuit {
             std::process::exit(0);
