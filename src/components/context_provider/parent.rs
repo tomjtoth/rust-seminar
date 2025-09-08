@@ -24,7 +24,7 @@ pub fn Parent(props: ParentProps) -> Element {
 
             button {
                 class: props.bg,
-                onclick: move |_| bg.with_mut(|w| *w = props.bg.to_string()),
+                onclick: move |_| bg.set(props.bg.to_string()),
                 "set bg of this to {props.bg}"
             }
 

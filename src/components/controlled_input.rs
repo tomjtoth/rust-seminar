@@ -15,11 +15,7 @@ pub fn ControlledInput() -> Element {
                 input {
                     class: "ml-2",
                     placeholder: "text here",
-
-                    oninput:move |evt| {
-                        let mut writable = txt.write();
-                        *writable = evt.value()
-                    },
+                    oninput:move |evt| txt.set(evt.value()),
 
                     value: "{txt}"
                 }
@@ -29,7 +25,7 @@ pub fn ControlledInput() -> Element {
                 onclick: move |evt| {
                     // DEMO: comment this out
                     evt.prevent_default();
-                    txt.with_mut(|writable| { *writable = "CHEESE".to_string() })
+                    txt.set( "CHEESE".to_string())
                 },
 
                 r#"say "CHEESE""#
