@@ -6,47 +6,78 @@ use dioxus::{
     events::{Code, Modifiers},
 };
 
+#[derive(Debug, Clone, Copy)]
+enum Menus {
+    File,
+    FileNew,
+    FileOpen,
+    FileSave,
+    FileQuit,
+    Help,
+    HelpAbout,
+}
+
+impl ToString for Menus {
+    fn to_string(&self) -> String {
+        format!("{:?}", self)
+    }
+}
+
+impl PartialEq<Menus> for &str {
+    fn eq(&self, other: &Menus) -> bool {
+        *self == other.to_string()
+    }
+}
+
 pub fn desktop_menu() -> Menu {
-    let file_new = MenuItem::new(
-        "New",
-        true,
-        Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyN)),
-    );
-
-    let file_open = MenuItem::new(
-        "Open",
-        true,
-        Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyO)),
-    );
-
-    let file_save = MenuItem::new(
-        "Save",
-        true,
-        Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyS)),
-    );
-
-    let file_quit = MenuItem::new(
-        "Quit",
-        true,
-        Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyQ)),
-    );
-
-    let file_menu = Submenu::with_items(
+    let file_menu = Submenu::with_id_and_items(
+        Menus::File,
         "File",
         true,
-        &[&file_new, &file_open, &file_save, &file_quit],
+        &[
+            &MenuItem::with_id(
+                Menus::FileNew,
+                "New",
+                true,
+                Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyN)),
+            ),
+            &MenuItem::with_id(
+                Menus::FileOpen,
+                "Open",
+                true,
+                Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyO)),
+            ),
+            &MenuItem::with_id(
+                Menus::FileSave,
+                "Save",
+                true,
+                Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyS)),
+            ),
+            &MenuItem::with_id(
+                Menus::FileQuit,
+                "Quit",
+                true,
+                Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyQ)),
+            ),
+        ],
     )
     .unwrap();
 
-    let help_about = MenuItem::new("About", true, None);
+    let help_menu = Submenu::with_id_and_items(
+        Menus::Help,
+        "Help",
+        true,
+        &[&MenuItem::with_id(Menus::HelpAbout, "About", true, None)],
+    )
+    .unwrap();
 
-    let help_menu = Submenu::with_items("Help", true, &[&help_about]).unwrap();
+    Menu::with_items(&[&file_menu, &help_menu]).unwrap()
+}
 
-    use_muda_event_handler(move |evt| {
-        if evt.id() == file_quit.id() {
+pub fn use_handler() {
+    use_muda_event_handler(|evt| {
+        if evt.id.0.as_str() == Menus::FileQuit {
             std::process::exit(0);
         }
     });
-
-    Menu::with_items(&[&file_menu, &help_menu]).unwrap()
 }
