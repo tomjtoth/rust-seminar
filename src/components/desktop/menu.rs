@@ -76,7 +76,11 @@ pub fn window_menu() -> Menu {
 
 pub(super) fn use_handler() {
     use_muda_event_handler(|evt| {
-        if evt.id.0.as_str() == Menus::FileQuit {
+        let as_str = evt.id.0.as_str();
+
+        if as_str == Menus::HelpAbout {
+            super::about::open_about_view()
+        } else if as_str == Menus::FileQuit {
             std::process::exit(0);
         }
     });

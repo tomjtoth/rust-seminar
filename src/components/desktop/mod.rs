@@ -1,3 +1,4 @@
+mod about;
 mod menu;
 
 pub use menu::window_menu;
