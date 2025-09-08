@@ -1,53 +1,52 @@
 use dioxus::{
-    desktop::muda::{accelerator::Accelerator, Menu, MenuItem, Submenu},
+    desktop::{
+        muda::{accelerator::Accelerator, Menu, MenuItem, Submenu},
+        use_muda_event_handler,
+    },
     events::{Code, Modifiers},
 };
 
-pub fn desktop_menu() -> dioxus::desktop::muda::Menu {
-    let root_menu = Menu::new();
+pub fn desktop_menu() -> Menu {
+    let file_new = MenuItem::new(
+        "New",
+        true,
+        Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyN)),
+    );
 
-    let file_menu = Submenu::new("File", true);
+    let file_open = MenuItem::new(
+        "Open",
+        true,
+        Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyO)),
+    );
 
-    file_menu
-        .append(&MenuItem::new(
-            "New",
-            true,
-            Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyN)),
-        ))
-        .unwrap();
+    let file_save = MenuItem::new(
+        "Save",
+        true,
+        Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyS)),
+    );
 
-    file_menu
-        .append(&MenuItem::new(
-            "Open",
-            true,
-            Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyO)),
-        ))
-        .unwrap();
+    let file_quit = MenuItem::new(
+        "Quit",
+        true,
+        Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyQ)),
+    );
 
-    file_menu
-        .append(&MenuItem::new(
-            "Save",
-            true,
-            Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyS)),
-        ))
-        .unwrap();
+    let file_menu = Submenu::with_items(
+        "File",
+        true,
+        &[&file_new, &file_open, &file_save, &file_quit],
+    )
+    .unwrap();
 
-    file_menu
-        .append(&MenuItem::new(
-            "Quit",
-            true,
-            Some(Accelerator::new(Some(Modifiers::CONTROL), Code::KeyQ)),
-        ))
-        .unwrap();
+    let help_about = MenuItem::new("About", true, None);
 
-    let help_menu = Submenu::new("Help", true);
+    let help_menu = Submenu::with_items("Help", true, &[&help_about]).unwrap();
 
-    help_menu
-        .append(&MenuItem::new("About", true, None))
-        .unwrap();
+    use_muda_event_handler(move |evt| {
+        if evt.id() == file_quit.id() {
+            std::process::exit(0);
+        }
+    });
 
-    root_menu.append(&file_menu).unwrap();
-    root_menu.append(&help_menu).unwrap();
-
-    root_menu
+    Menu::with_items(&[&file_menu, &help_menu]).unwrap()
 }
