@@ -35,6 +35,11 @@ fn main() {
 
 #[component]
 fn App() -> Element {
+    #[cfg(feature = "desktop")]
+    {
+        components::desktop_menu::use_handler();
+    }
+
     rsx! {
         document::Link { rel: "icon", href: FAVICON }
         document::Link { rel: "stylesheet", href: TAILWIND_CSS }
