@@ -2,6 +2,7 @@ use dioxus::prelude::*;
 
 mod components;
 mod routes;
+mod services;
 mod utils;
 
 const FAVICON: Asset = asset!("/assets/favicon.ico");
