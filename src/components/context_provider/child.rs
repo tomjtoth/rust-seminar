@@ -2,14 +2,9 @@ use dioxus::prelude::*;
 
 use crate::components::context_provider::parent::ParentContext;
 
-#[derive(Clone, PartialEq, Props)]
-pub struct ChildProps {
-    pub bg: &'static str,
-}
-
 #[component]
-pub fn Child(props: ChildProps) -> Element {
-    let mut bg = use_context::<ParentContext>().bg;
+pub fn Child(bg: &'static str, children: Element) -> Element {
+    let mut sig_bg = use_context::<ParentContext>().sig_bg;
 
     rsx! {
         p {
@@ -17,9 +12,9 @@ pub fn Child(props: ChildProps) -> Element {
         }
 
         button {
-            class: props.bg,
-            onclick: move |_| bg.set(props.bg.to_string()),
-            "set bg of this parent to {props.bg}"
+            class: sig_bg,
+            onclick: move |_| sig_bg.set(bg.to_string()),
+            "set bg of this parent to {bg}"
         }
     }
 }

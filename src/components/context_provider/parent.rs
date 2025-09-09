@@ -2,35 +2,29 @@ use dioxus::{logger::tracing, prelude::*};
 
 #[derive(Clone, PartialEq)]
 pub(super) struct ParentContext {
-    pub(super) bg: Signal<String>,
-}
-
-#[derive(Clone, PartialEq, Props)]
-pub struct ParentProps {
-    children: Element,
-    bg: &'static str,
+    pub(super) sig_bg: Signal<String>,
 }
 
 #[component]
-pub fn Parent(props: ParentProps) -> Element {
-    let mut bg = use_signal(|| props.bg.to_string());
-    use_context_provider(|| ParentContext { bg });
+pub fn Parent(children: Element, bg: &'static str) -> Element {
+    let mut sig_bg = use_signal(|| bg.to_string());
+    use_context_provider(|| ParentContext { sig_bg });
 
-    use_effect(move || tracing::debug!("current bg: {bg}"));
+    use_effect(move || tracing::debug!("current bg: {sig_bg}"));
 
     rsx! {
         div {
             class: "flex p-2 gap-2",
 
             button {
-                class: props.bg,
-                onclick: move |_| bg.set(props.bg.to_string()),
-                "set bg of this to {props.bg}"
+                class: bg,
+                onclick: move |_| sig_bg.set(bg.to_string()),
+                "set bg of this to {bg}"
             }
 
             div {
-                class: "border rounded p-2 {bg}",
-                {props.children}
+                class: "border rounded p-2 {sig_bg}",
+                {children}
             }
         }
     }
