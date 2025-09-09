@@ -2,7 +2,7 @@ use dioxus::prelude::*;
 
 use crate::components::global_signal::buttons::{Incrementer, Nullifier};
 
-mod buttons;
+pub mod buttons;
 mod model;
 
 #[component]
