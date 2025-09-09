@@ -12,7 +12,7 @@ pub fn Child(bg: &'static str, children: Element) -> Element {
         }
 
         button {
-            class: sig_bg,
+            class: bg,
             onclick: move |_| sig_bg.set(bg.to_string()),
             "set bg of this parent to {bg}"
         }
