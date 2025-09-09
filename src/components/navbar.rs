@@ -13,6 +13,7 @@ pub fn NavBar() -> Element {
                 li { Link {to: Route::ContextProvider {}, "context providers"} }
                 li { Link {to: Route::FnGlobalSignal {}, "global signals"} }
                 li { Link {to: Route::CallbackComponent {}, "callback"} }
+                li { Link {to: Route::QueryServer {}, "fullstack"} }
             }
         }
 
