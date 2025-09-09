@@ -1,4 +1,4 @@
-use dioxus::desktop::{tao::window::Icon, trayicon::Icon as TrayIcon};
+use dioxus::desktop::trayicon::Icon as TrayIcon;
 
 static ICON_DATA: [u8; 1024] = [
     255, 0, 0, 100, 0, 255, 0, 100, 0, 0, 255, 100, 255, 255, 255, 100, 255, 0, 0, 100, 0, 255, 0,
@@ -49,10 +49,6 @@ static ICON_DATA: [u8; 1024] = [
     100, 255, 0, 0, 100, 0, 255, 0, 100, 0, 0, 255, 100, 255, 255, 255, 100, 255, 0, 0, 100, 0,
     255, 0, 100, 0, 0, 255, 100, 255, 255, 255, 100,
 ];
-
-pub fn icon() -> Icon {
-    Icon::from_rgba(ICON_DATA.to_vec(), 16, 16).unwrap()
-}
 
 pub fn tray_icon() -> TrayIcon {
     TrayIcon::from_rgba(ICON_DATA.to_vec(), 16, 16).unwrap()
