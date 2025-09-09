@@ -2,9 +2,9 @@ use dioxus::prelude::*;
 
 type GsCounter = GlobalSignal<i8>;
 
-pub(super) static COUNTER: GsCounter = Signal::global(|| 0);
+pub static COUNTER: GsCounter = Signal::global(|| 0);
 
-pub(super) trait TrCounter {
+pub trait TrCounter {
     fn null_it(&self);
 }
 

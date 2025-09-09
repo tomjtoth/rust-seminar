@@ -3,7 +3,7 @@ use dioxus::prelude::*;
 use crate::components::global_signal::buttons::{Incrementer, Nullifier};
 
 pub mod buttons;
-mod model;
+pub mod model;
 
 #[component]
 pub fn FnGlobalSignal() -> Element {
