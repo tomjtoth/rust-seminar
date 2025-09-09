@@ -5,5 +5,6 @@ pub mod controlled_input;
 pub mod counter;
 #[cfg(feature = "desktop")]
 pub mod desktop;
+pub mod fullstack;
 pub mod global_signal;
 pub mod navbar;
