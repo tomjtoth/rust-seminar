@@ -37,10 +37,7 @@ fn main() {
 fn App() -> Element {
     #[cfg(feature = "desktop")]
     {
-        use dioxus::desktop::trayicon::{default_tray_icon, init_tray_icon};
-        init_tray_icon(default_tray_icon(), None);
-
-        components::desktop::use_menu_handlers();
+        components::desktop::init_desktop_runtime();
     }
 
     rsx! {
