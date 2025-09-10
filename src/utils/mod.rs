@@ -6,5 +6,9 @@ pub mod desktop;
 pub const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
 
 pub fn init_client_side() {
-    server_fn::client::set_server_url(option_env!("SERVER_URL").unwrap_or("http://127.0.0.1:8080"));
+    server_fn::client::set_server_url(server_url());
+}
+
+pub fn server_url() -> &'static str {
+    option_env!("SERVER_URL").unwrap_or("http://127.0.0.1:8080")
 }
