@@ -23,7 +23,7 @@ pub fn Parent(children: Element, bg: &'static str) -> Element {
             }
 
             div {
-                class: "border rounded p-2 {sig_bg}",
+                class: "border rounded p-2 {sig_bg} duration-500",
                 {children}
             }
         }
