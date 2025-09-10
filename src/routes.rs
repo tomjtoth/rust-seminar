@@ -1,4 +1,5 @@
 use dioxus::prelude::*;
+use dioxus_oauth::component::OAuthPopup;
 
 use crate::components::{
     callback::component::CallbackComponent, container::Container,
@@ -28,4 +29,7 @@ pub(crate) enum Route {
 
     #[route("/fullstack")]
     QueryServer {},
+
+    #[route("/oauth/code")]
+    OAuthPopup {},
 }
