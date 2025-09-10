@@ -6,21 +6,18 @@ pub fn OAuthLoginPage() -> Element {
         #[cfg(not(feature = "server"))]
         {
             use dioxus_oauth::prelude::{OAuthClient, TokenResponse};
-            use std::env::var;
 
             spawn(async move {
-                let client_id = var("CLIENT_ID").expect("CLIENT_ID not set");
-                // let client_secret = var("CLIENT_SECRET").expect("CLIENT_SECRET not set");
-                let redirect_uri = "/oauth/code".to_string();
+                let client_id = option_env!("CLIENT_ID").expect("CLIENT_ID not set");
+                let redirect_uri = format!("{}/oauth/code", crate::utils::server_url());
 
                 let client = OAuthClient::new(
                     &client_id,
                     &redirect_uri,
                     "https://discord.com/oauth2/authorize",
                     "https://discord.com/api/oauth2/token",
-                );
-                // .set_openid_url("https://kauth.kakao.com/oauth/tokeninfo");
-                // .set_client_secret(&client_secret);
+                )
+                .add_scope("email");
 
                 let code: String = match client.get_auth_code().await {
                     Ok(code) => code,
@@ -56,7 +53,7 @@ pub fn OAuthLoginPage() -> Element {
     rsx! {
         button {
             onclick: handler,
-            "login"
+            "login via Discord"
         }
     }
 }
