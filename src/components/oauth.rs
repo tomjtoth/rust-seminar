@@ -54,9 +54,9 @@ pub fn OAuthLoginPage() -> Element {
     };
 
     rsx! {
-        div {
+        button {
             onclick: handler,
-            "faaf login.."
+            "login"
         }
     }
 }
