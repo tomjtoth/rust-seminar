@@ -1,34 +1,60 @@
-# Development
+# Rust Seminar Demo
 
-Your new bare-bones project includes minimal organization with a single `main.rs` file and a few assets.
+This is a demo for a HY course.
 
-```
-project/
-├─ assets/ # Any assets that are used by the app should be placed here
-├─ src/
-│  ├─ main.rs # main.rs is the entry point to your application and currently contains all components for the app
-├─ Cargo.toml # The Cargo.toml file defines the dependencies and feature flags for your project
-```
+## Styles via Tailwind CSS
 
-### Tailwind
-1. Install npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-2. Install the Tailwind CSS CLI: https://tailwindcss.com/docs/installation
-3. Run the following command in the root of the project to start the Tailwind CSS compiler:
+Run the below commands:
 
 ```bash
-npx tailwindcss -i ./tailwind.css -o ./assets/tailwind.css --watch
+npm install
+npm run dev:css
 ```
+
+## Running on Desktop
+
+Followed [this guide](https://dioxuslabs.com/learn/0.6/getting_started/#linux), installed deps, everything worked out of the box.
+
+## Running on Android
+
+Followed [this guide](https://dioxuslabs.com/learn/0.6/guides/mobile/#getting-set-up) with the below deviations:
+
+- had **`jdk24-openjdk`, which was too new for gradle 8.9** (used internally by `dx serve`)
+  - installed `jdk21-openjdk`
+- also installed `android-ndk`
+- and set env vars on Arch:
+
+```sh
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
+export ANDROID_HOME="$HOME/Android/Sdk"
+export NDK_HOME="/opt/android-ndk"
+export PATH="$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools"
+```
+
+**SERVE YOUR APP NOW**
+
+After running the command from the next section, I located and copied over the `.apk` to my home folder:
+
+```sh
+find target -name '*.apk' -exec cp {} "$HOME/" \; -quit
+```
+
+From where I transferred (via USB) and installed it manually to my phone.
 
 ### Serving Your App
 
-Run the following command in the root of your project to start developing with the default platform:
+Run the following command in the root of your project to start developing with the default platform (web):
 
 ```bash
 dx serve
 ```
 
-To run for a different platform, use the `--platform platform` flag. E.g.
-```bash
-dx serve --platform desktop
-```
+To run for a different platform, use the `--platform platform` flag. e.g.
 
+```bash
+# for the desktop
+dx serve --platform desktop
+
+# for Android, exposing server over WiFi
+SERVER_URL=http://DEV_MACHINE_IP_ON_WIFI:8080 dx serve --platform android --addr 0.0.0.0
+```
