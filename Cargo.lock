@@ -3915,6 +3915,7 @@ name = "rust-seminar"
 version = "0.1.0"
 dependencies = [
  "dioxus",
+ "serde",
 ]
 
 [[package]]
