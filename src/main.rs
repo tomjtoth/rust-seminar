@@ -11,11 +11,11 @@ fn main() {
     #[cfg(not(feature = "server"))]
     utils::init_client_side();
 
-    if cfg!(feature = "desktop") {
-        utils::desktop::launch(App);
-    } else {
-        dioxus::launch(App);
-    }
+    #[cfg(feature = "desktop")]
+    utils::desktop::launch(App);
+
+    #[cfg(not(feature = "desktop"))]
+    dioxus::launch(App);
 }
 
 #[component]
