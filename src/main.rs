@@ -8,6 +8,12 @@ mod utils;
 const FAVICON: Asset = asset!("/assets/favicon.ico");
 
 fn main() {
+    #[cfg(not(feature = "server"))]
+    {
+        let server_url = option_env!("SERVER_URL").unwrap_or("http://127.0.0.1:8080");
+        server_fn::client::set_server_url(server_url);
+    }
+
     #[cfg(feature = "desktop")]
     {
         use dioxus::desktop::{Config, WindowBuilder};
