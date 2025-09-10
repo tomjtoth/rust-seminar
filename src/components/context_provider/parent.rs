@@ -12,6 +12,8 @@ pub fn Parent(children: Element, bg: &'static str) -> Element {
 
     use_effect(move || tracing::debug!("current bg: {sig_bg}"));
 
+    let color = bg.split('-').nth(1).unwrap();
+
     rsx! {
         div {
             class: "flex p-2 gap-2",
@@ -19,7 +21,7 @@ pub fn Parent(children: Element, bg: &'static str) -> Element {
             button {
                 class: bg,
                 onclick: move |_| sig_bg.set(bg.to_string()),
-                "set bg of this to {bg}"
+                "set bg of this to {color}"
             }
 
             div {
