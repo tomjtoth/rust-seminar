@@ -1,16 +1,16 @@
 {
   "name": "rust-seminar",
   "version": "0.1.0",
-  "description": "dioxus demo for a HY course",
+  "private": true,
+  "description": "Dioxus demo for a HY course",
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
-  "main": "tailwind.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:css": "tailwindcss -i ./tailwind.css -o ./assets/tailwind.css --minify",
+    "dev:css": "tailwindcss -i ./tailwind.css -o ./assets/tailwind.css --watch"
   },
-  "dependencies": {
-    "@tailwindcss/cli": "^4.1.13",
-    "tailwindcss": "^4.1.13"
+  "devDependencies": {
+    "tailwindcss": "^4.1.13",
+    "@tailwindcss/cli": "^4.1.13"
   }
 }
