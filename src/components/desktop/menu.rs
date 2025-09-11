@@ -74,7 +74,7 @@ pub fn window_menu() -> Menu {
     Menu::with_items(&[&file_menu, &help_menu]).unwrap()
 }
 
-pub(super) fn use_handler() {
+pub fn use_handler() {
     use_muda_event_handler(|evt| {
         let as_str = evt.id.0.as_str();
 

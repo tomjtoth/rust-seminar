@@ -8,14 +8,15 @@ edition = "2021"
 
 [dependencies]
 dioxus = { version = "0.6.0", features = ["router", "fullstack"] }
+dioxus-oauth = "0.6.4"
 serde = "1.0.219"
 
 [features]
 default = ["web"]
-web = ["dioxus/web"]
+web = ["dioxus-oauth/web"]
 desktop = ["dioxus/desktop"]
 mobile = ["dioxus/mobile"]
-server = ["dioxus/server"]
+server = ["dioxus-oauth/server"]
 
 [profile]
 

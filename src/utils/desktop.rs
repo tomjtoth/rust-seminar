@@ -1,4 +1,12 @@
-use dioxus::desktop::trayicon::Icon as TrayIcon;
+use dioxus::{
+    desktop::{
+        trayicon::{default_tray_icon, init_tray_icon, Icon as TrayIcon},
+        Config, WindowBuilder,
+    },
+    prelude::Element,
+};
+
+use crate::components::desktop::menu;
 
 static ICON_DATA: [u8; 1024] = [
     255, 0, 0, 100, 0, 255, 0, 100, 0, 0, 255, 100, 255, 255, 255, 100, 255, 0, 0, 100, 0, 255, 0,
@@ -50,6 +58,29 @@ static ICON_DATA: [u8; 1024] = [
     255, 0, 100, 0, 0, 255, 100, 255, 255, 255, 100,
 ];
 
-pub fn tray_icon() -> TrayIcon {
+fn tray_icon() -> TrayIcon {
     TrayIcon::from_rgba(ICON_DATA.to_vec(), 16, 16).unwrap()
+}
+
+pub fn init_desktop_runtime() {
+    init_tray_icon(default_tray_icon(), Some(tray_icon()));
+
+    menu::use_handler();
+}
+
+pub fn launch(app: fn() -> Element) {
+    let root_menu = menu::window_menu();
+
+    dioxus::LaunchBuilder::desktop()
+        .with_cfg(
+            Config::new()
+                .with_window(
+                    WindowBuilder::new()
+                        .with_title("Rust Seminar Demo")
+                        .with_minimizable(true)
+                        .with_maximizable(true),
+                )
+                .with_menu(root_menu),
+        )
+        .launch(app);
 }

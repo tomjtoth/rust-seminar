@@ -5,6 +5,7 @@ use crate::components::context_provider::parent::ParentContext;
 #[component]
 pub fn Child(bg: &'static str, children: Element) -> Element {
     let mut sig_bg = use_context::<ParentContext>().sig_bg;
+    let color = bg.split('-').nth(1).unwrap();
 
     rsx! {
         p {
@@ -14,7 +15,7 @@ pub fn Child(bg: &'static str, children: Element) -> Element {
         button {
             class: bg,
             onclick: move |_| sig_bg.set(bg.to_string()),
-            "set bg of this parent to {bg}"
+            "set bg of this parent to {color}"
         }
     }
 }
