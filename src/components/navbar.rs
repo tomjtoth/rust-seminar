@@ -4,6 +4,14 @@ use crate::routes::Route;
 
 #[component]
 pub fn NavBar() -> Element {
+    // TODO: find a way to restrict this to Web only, this results in weird behavior
+
+    // #[cfg(target_arch = "wasm32")]
+    // let oauth = rsx! { li { Link { to: Route::OAuthLoginPage {}, "OAuth" } } };
+
+    // #[cfg(not(target_arch = "wasm32"))]
+    // let oauth = rsx! {};
+
     rsx! {
         nav {
             ul {
@@ -14,6 +22,7 @@ pub fn NavBar() -> Element {
                 li { Link {to: Route::FnGlobalSignal {}, "global signals"} }
                 li { Link {to: Route::CallbackComponent {}, "callback"} }
                 li { Link {to: Route::QueryServer {}, "fullstack"} }
+                // {oauth}
             }
         }
 
