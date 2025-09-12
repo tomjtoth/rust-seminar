@@ -1,42 +1,29 @@
 use dioxus::prelude::*;
 
-use crate::{
-    components::global_signal::{buttons::Incrementer, model::COUNTER},
-    services::{get_0i8_from_server, get_fancy_struct_from_server, FancyStruct},
-};
+use crate::components::global_signal::buttons::Incrementer;
+
+mod future;
+mod nullifiers;
 
 #[component]
-pub fn QueryServer() -> Element {
-    let fancy_handler = |_| async {
-        if let Ok(fs) = get_fancy_struct_from_server().await {
-            let FancyStruct { inner: (_idc, arr) } = fs;
-
-            COUNTER.with_mut(|mutable| *mutable = *arr.last().unwrap());
-        }
-    };
+pub fn FullstackExamples() -> Element {
+    let class = "border rounded p-2 flex flex-col gap-2 [&_button]:w-fit items-center";
 
     rsx! {
-        p {
-            "This manipulates the same global signal as seen previously.."
+        div {
+            class,
+
+            p {
+                "This manipulates the same global signal as seen previously.."
+            }
+
+            Incrementer { increment_by: 10 }
+            Incrementer { increment_by: 5 }
+            Incrementer { increment_by: 1 }
+
+            nullifiers::SimpleNullifier {}
+            nullifiers::FancyNullifier {}
         }
 
-        Incrementer { increment_by: 10 }
-        Incrementer { increment_by: 5 }
-        Incrementer { increment_by: 1 }
-
-        button {
-            onclick: |_| async {
-                if let Ok(res) = get_0i8_from_server().await {
-                    COUNTER.with_mut(|mutable| *mutable = res);
-                }
-            },
-
-            "null counter (via plain server fn)"
-        }
-
-        button {
-            onclick: fancy_handler,
-            "null counter (via fancy server fn)"
-        }
     }
 }
