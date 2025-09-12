@@ -3,13 +3,14 @@ use dioxus::prelude::*;
 use crate::components::global_signal::model::*;
 
 #[component]
-pub fn Incrementer(increment_by: i8) -> Element {
+pub fn Incrementer(increment_by: i8, title: Option<String>) -> Element {
     let operator = if increment_by > 0 { "+" } else { "-" };
 
     let disabled = COUNTER.with(move |r| r.checked_add(increment_by).is_none());
     rsx! {
         button {
             disabled,
+            title,
             class: if disabled { "text-gray-200" },
             style: if disabled { "cursor: not-allowed;" },
             onclick: move |_| *COUNTER.write() += increment_by,
