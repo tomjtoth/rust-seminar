@@ -6,14 +6,6 @@ pub async fn get_0i8_from_server() -> Result<i8, ServerFnError> {
     Ok(0)
 }
 
-#[server]
-pub async fn failing_server_function() -> Result<i8, ServerFnError> {
-    // failing early
-    return Err(ServerFnError::new("oops!"));
-
-    Ok(42)
-}
-
 #[derive(Serialize, Deserialize)]
 pub struct FancyStruct {
     pub inner: (u8, Vec<i8>),
