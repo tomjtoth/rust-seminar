@@ -8,4 +8,3 @@ pub mod desktop;
 pub mod fullstack;
 pub mod global_signal;
 pub mod navbar;
-pub mod oauth;

@@ -13,11 +13,11 @@ npm run dev:css
 
 ## Running on Desktop (Arch Linux)
 
-Followed [this guide](https://dioxuslabs.com/learn/0.6/getting_started/#linux), installed deps, everything worked out of the box.
+Followed [this guide](https://dioxuslabs.com/learn/0.7/getting_started/#linux), installed deps, everything worked out of the box.
 
 ## Running on Android
 
-Followed [this guide](https://dioxuslabs.com/learn/0.6/guides/mobile/#getting-set-up) with the below deviations:
+Followed [this guide](https://dioxuslabs.com/learn/0.7/guides/platforms/mobile) with the below deviations:
 
 - had **`jdk24-openjdk`, which was too new for gradle 8.9** (used internally by `dx serve`)
   - installed `jdk21-openjdk`

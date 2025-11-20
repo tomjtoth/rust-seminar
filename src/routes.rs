@@ -1,11 +1,9 @@
 use dioxus::prelude::*;
-use dioxus_oauth::component::OAuthPopup;
 
 use crate::components::{
     callback::component::CallbackComponent, container::Container,
     context_provider::ContextProvider, controlled_input::ControlledInput, counter::Counter,
     fullstack::FullstackExamples, global_signal::FnGlobalSignal, navbar::NavBar,
-    oauth::OAuthLoginPage,
 };
 
 #[derive(Clone, Routable)]
@@ -30,10 +28,4 @@ pub(crate) enum Route {
 
     #[route("/fullstack")]
     FullstackExamples {},
-
-    #[route("/oauth/code")]
-    OAuthPopup {},
-
-    #[route("/login")]
-    OAuthLoginPage {},
 }
