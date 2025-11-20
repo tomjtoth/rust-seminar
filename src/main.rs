@@ -10,7 +10,9 @@ fn main() {
 }
 
 #[derive(Default)]
-struct MyEguiApp {}
+struct MyEguiApp {
+    counter: u8,
+}
 
 impl MyEguiApp {
     fn new(cc: &eframe::CreationContext<'_>) -> Self {
@@ -26,6 +28,18 @@ impl eframe::App for MyEguiApp {
     fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
             ui.heading("Hello World!");
+
+            counter(ui, &mut self.counter);
         });
     }
+}
+
+pub fn counter(ui: &mut egui::Ui, counter: &mut u8) {
+    ui.horizontal(|ui| {
+        ui.label(format!("current count: {}", counter));
+
+        if ui.button(format!("{}++", counter)).clicked() {
+            *counter = counter.checked_add(1).unwrap_or(0);
+        }
+    });
 }
