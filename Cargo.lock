@@ -4118,10 +4118,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "rust-seminar"
+name = "rust-seminar-dioxus"
 version = "0.1.0"
 dependencies = [
  "dioxus",
+ "dioxus-desktop",
  "serde",
 ]
 
