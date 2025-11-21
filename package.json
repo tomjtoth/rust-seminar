@@ -1,5 +1,5 @@
 {
-  "name": "rust-seminar",
+  "name": "rust-seminar-dioxus",
   "version": "0.1.0",
   "private": true,
   "description": "Dioxus demo for a HY course",
