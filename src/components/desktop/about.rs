@@ -1,7 +1,5 @@
-use dioxus::{
-    desktop::{use_window, Config, LogicalSize, WindowBuilder},
-    prelude::*,
-};
+use dioxus::prelude::*;
+use dioxus_desktop::{Config, LogicalSize, WindowBuilder, use_window};
 
 #[component]
 fn About() -> Element {
@@ -14,7 +12,7 @@ fn About() -> Element {
             draggable: false,
             title: "close window",
             class: "cursor-pointer",
-            onclick: |_| dioxus::desktop::window().close(),
+            onclick: |_| dioxus_desktop::window().close(),
         }
     }
 }
