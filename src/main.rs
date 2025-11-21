@@ -3,7 +3,7 @@ use eframe::egui;
 fn main() {
     let native_options = eframe::NativeOptions::default();
     let _ = eframe::run_native(
-        "My egui App",
+        "Rust seminar - egui",
         native_options,
         Box::new(|cc| Ok(Box::new(MyEguiApp::new(cc)))),
     );
