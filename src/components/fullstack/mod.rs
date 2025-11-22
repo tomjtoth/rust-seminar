@@ -13,12 +13,22 @@ pub fn FullstackExamples() -> Element {
         div {
             class,
 
-            p {
-                "This manipulates the same global signal as seen previously.."
-            }
+            // DEMO: passed as Some(String)
+            Incrementer { increment_by: 16, title: Some("manipulates the previously seen global signal".to_string()) }
 
-            Incrementer { increment_by: 10 }
-            Incrementer { increment_by: 5 }
+            // passed as String
+            Incrementer { increment_by: 8, title: "same as above".to_string() }
+
+            // CANNOT pass Some(&str)
+            // Incrementer { increment_by: 4, title: Some("same as above") }
+
+            // passed as &str
+            Incrementer { increment_by: 4, title: "same as above" }
+
+            // passed None
+            Incrementer { increment_by: 2, title: None }
+
+            // omitted
             Incrementer { increment_by: 1 }
 
             nullifiers::SimpleNullifier {}
