@@ -1,7 +1,9 @@
-use dioxus::html::{Code, Modifiers};
-use dioxus_desktop::{
-    muda::{Menu, MenuItem, Submenu, accelerator::Accelerator},
-    use_muda_event_handler,
+use dioxus::{
+    desktop::{
+        muda::{accelerator::Accelerator, Menu, MenuItem, Submenu},
+        use_muda_event_handler,
+    },
+    events::{Code, Modifiers},
 };
 
 #[derive(Debug, Clone, Copy)]
