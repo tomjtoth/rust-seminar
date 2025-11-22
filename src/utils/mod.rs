@@ -6,7 +6,7 @@ pub mod desktop;
 pub const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
 
 pub fn init_client_side() {
-    dioxus_fullstack::set_server_url(server_url());
+    server_fn::client::set_server_url(server_url());
 }
 
 pub fn server_url() -> &'static str {
