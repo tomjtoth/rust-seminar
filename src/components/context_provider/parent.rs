@@ -2,13 +2,15 @@ use dioxus::{logger::tracing, prelude::*};
 
 #[derive(Clone, PartialEq)]
 pub(super) struct ParentContext {
-    pub(super) sig_bg: Signal<String>,
+    pub(super) bg: Signal<String>,
 }
+
+// DEMO: `children: Element``
 
 #[component]
 pub fn Parent(children: Element, bg: &'static str) -> Element {
     let mut sig_bg = use_signal(|| bg.to_string());
-    use_context_provider(|| ParentContext { sig_bg });
+    use_context_provider(|| ParentContext { bg: sig_bg });
 
     use_effect(move || tracing::debug!("current bg: {sig_bg}"));
 

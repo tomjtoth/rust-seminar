@@ -2,7 +2,7 @@ use dioxus::{logger::tracing, prelude::*};
 
 #[component]
 pub fn ControlledInput() -> Element {
-    let mut txt = use_signal(|| "".to_string());
+    let mut value = use_signal(|| "".to_string());
 
     rsx! {
         form {
@@ -15,9 +15,8 @@ pub fn ControlledInput() -> Element {
                 input {
                     class: "ml-2",
                     placeholder: "text here",
-                    oninput:move |evt| txt.set(evt.value()),
-
-                    value: "{txt}"
+                    oninput: move |evt| value.set(evt.value()),
+                    value
                 }
             }
 
@@ -25,7 +24,7 @@ pub fn ControlledInput() -> Element {
                 onclick: move |evt| {
                     // DEMO: comment this out
                     evt.prevent_default();
-                    txt.set( "CHEESE".to_string())
+                    value.set("CHEESE".to_string())
                 },
 
                 r#"say "CHEESE""#

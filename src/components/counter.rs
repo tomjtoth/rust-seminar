@@ -10,10 +10,7 @@ pub fn Counter() -> Element {
             class: "w-fit",
             title: "increment by one",
             onclick: move |_| {
-                counter.with_mut(|w| {
-                    let inc_or_zero = if let Some(x) = w.checked_add(1) { x } else { 0 };
-                    *w = inc_or_zero;
-                })
+                counter.with_mut(|inner| *inner = inner.checked_add(1).unwrap_or(0))
             },
             "{counter}++"
         }

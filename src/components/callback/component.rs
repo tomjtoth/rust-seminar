@@ -4,18 +4,20 @@ use crate::components::callback::handler::handler;
 
 #[component]
 pub fn CallbackComponent() -> Element {
-    let mut sig = use_signal(|| "initial".to_string());
+    let mut text = use_signal(|| "initial".to_string());
 
-    let cb = use_callback(move |a| sig.set(format!("done-{a}")));
+    let callback = use_callback(move |safely_incremented_index| {
+        text.set(format!("done-{safely_incremented_index}"))
+    });
 
     rsx! {
         div {
-            r#"currently: "{sig}""#
+            r#"currently: "{text}""#
         }
 
         button {
             onclick: move |_| async move {
-                handler(cb).await;
+                handler(callback).await;
             },
             "trigger callback"
         }

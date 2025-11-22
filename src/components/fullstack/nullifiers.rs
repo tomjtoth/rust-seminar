@@ -11,7 +11,7 @@ pub(super) fn SimpleNullifier() -> Element {
         button {
             onclick: |_| async {
                 if let Ok(res) = get_0i8_from_server().await {
-                    COUNTER.with_mut(|mutable| *mutable = res);
+                    COUNTER.with_mut(|inner| *inner = res);
                 }
             },
             "null counter (via plain server fn)"
@@ -23,9 +23,9 @@ pub(super) fn SimpleNullifier() -> Element {
 pub(super) fn FancyNullifier() -> Element {
     let fancy_handler = |_| async {
         if let Ok(fs) = get_fancy_struct_from_server().await {
-            let FancyStruct { inner: (_idc, arr) } = fs;
+            let FancyStruct { inner: (_, arr) } = fs;
 
-            COUNTER.with_mut(|mutable| *mutable = *arr.last().unwrap());
+            COUNTER.with_mut(|inner| *inner = *arr.last().unwrap());
         }
     };
 
