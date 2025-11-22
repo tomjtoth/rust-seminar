@@ -19,9 +19,16 @@ pub async fn get_fancy_struct_from_server() -> Result<FancyStruct, ServerFnError
 }
 
 #[server]
-pub async fn get_string_from_server(delay: Option<u32>) -> Result<String, ServerFnError> {
+pub async fn get_string_from_server(
+    delay: Option<u32>,
+    fail: bool,
+) -> Result<String, ServerFnError> {
     if let Some(millis) = delay {
         crate::utils::std_sleep(millis);
+    }
+
+    if fail {
+        return Err(ServerFnError::new("oops!"));
     }
 
     Ok("string from server".to_string())

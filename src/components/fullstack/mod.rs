@@ -2,7 +2,7 @@ use dioxus::prelude::*;
 
 use crate::components::global_signal::buttons::Incrementer;
 
-mod future;
+mod futures;
 mod nullifiers;
 
 #[component]
@@ -25,5 +25,10 @@ pub fn FullstackExamples() -> Element {
             nullifiers::FancyNullifier {}
         }
 
+        div {
+            class,
+
+            futures::Future {}
+        }
     }
 }
