@@ -16,9 +16,18 @@ fn main() {
     );
 }
 
-#[derive(Default)]
 struct MyEguiApp {
     counter: u8,
+    view: View,
+}
+
+impl Default for MyEguiApp {
+    fn default() -> Self {
+        MyEguiApp {
+            counter: 0,
+            view: View::Counter,
+        }
+    }
 }
 
 impl MyEguiApp {
