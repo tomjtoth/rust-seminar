@@ -36,6 +36,12 @@ impl MyEguiApp {
         // Restore app state using cc.storage (requires the "persistence" feature).
         // Use the cc.gl (a glow::Context) to create graphics shaders and buffers that you can use
         // for e.g. egui::PaintCallback.
+
+        let mut style = (*cc.egui_ctx.style()).clone();
+
+        style.visuals.panel_fill = egui::Color32::LIGHT_GRAY;
+
+        cc.egui_ctx.set_style(style);
         Self::default()
     }
 }
