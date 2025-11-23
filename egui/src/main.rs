@@ -1,11 +1,13 @@
 use eframe::egui::{self, Vec2};
 
 fn main() {
-    let mut native_options = eframe::NativeOptions::default();
-
-    native_options.viewport = native_options
-        .viewport
-        .with_inner_size(Vec2::new(320.0, 200.0));
+    let native_options = eframe::NativeOptions {
+        viewport: egui::ViewportBuilder {
+            inner_size: Some(Vec2::new(640.0, 480.0)),
+            ..Default::default()
+        },
+        ..Default::default()
+    };
 
     let _ = eframe::run_native(
         "Rust seminar - egui",
