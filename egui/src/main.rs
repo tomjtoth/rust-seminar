@@ -1,5 +1,12 @@
 use eframe::egui::{self, Vec2};
 
+use crate::components::{
+    navbar::{View, navbar},
+    router::router,
+};
+
+mod components;
+
 fn main() {
     let native_options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder {
@@ -47,11 +54,10 @@ impl MyEguiApp {
 }
 
 impl eframe::App for MyEguiApp {
-    fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
+    fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.heading("Hello World!");
-
-            counter(ui, &mut self.counter);
+            navbar(ui, self);
+            router(ui, self);
         });
     }
 }
