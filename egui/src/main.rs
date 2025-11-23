@@ -55,13 +55,3 @@ impl eframe::App for MyEguiApp {
         });
     }
 }
-
-pub fn counter(ui: &mut egui::Ui, counter: &mut u8) {
-    ui.horizontal(|ui| {
-        ui.label(format!("current count: {}", counter));
-
-        if ui.button(format!("{}++", counter)).clicked() {
-            *counter = counter.checked_add(1).unwrap_or(0);
-        }
-    });
-}
