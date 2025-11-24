@@ -76,7 +76,7 @@ pub fn launch(app: fn() -> Element) {
             Config::new()
                 .with_window(
                     WindowBuilder::new()
-                        .with_title("Rust Seminar Demo")
+                        .with_title("Rust seminar - dioxus")
                         .with_minimizable(true)
                         .with_maximizable(true),
                 )
