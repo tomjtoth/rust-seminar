@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-pub(super) async fn handler(callback: Callback<u8>) {
+pub(super) fn handler(callback: Callback<u8>) {
     let mut index = use_signal(|| 0u8);
 
     let arguments = index.with_mut(|inner| {

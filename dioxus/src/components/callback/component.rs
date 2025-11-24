@@ -16,8 +16,8 @@ pub fn CallbackComponent() -> Element {
         }
 
         button {
-            onclick: move |_| async move {
-                handler(callback).await;
+            onclick: move |_| {
+                handler(callback);
             },
             "trigger callback"
         }
