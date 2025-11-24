@@ -2,17 +2,17 @@ use dioxus::prelude::*;
 
 use crate::components::{
     callback::component::CallbackComponent, container::Container,
-    context_provider::ContextProvider, controlled_input::ControlledInput, counter::Counter,
+    context_provider::ContextProvider, controlled_input::ControlledInput, counters::CountersView,
     fullstack::FullstackExamples, global_signal::FnGlobalSignal, navbar::NavBar,
 };
 
 #[derive(Clone, Routable)]
-pub(crate) enum Route {
+pub enum Route {
     #[layout(NavBar)]
     #[layout(Container)]
-    #[redirect("/", || Route::Counter {})]
+    #[redirect("/", || Route::CountersView {})]
     #[route("/counter")]
-    Counter {},
+    CountersView {},
 
     #[route("/controlled-input")]
     ControlledInput {},
