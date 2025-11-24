@@ -2376,6 +2376,9 @@ name = "rust-seminar-egui"
 version = "0.1.0"
 dependencies = [
  "eframe",
+ "log",
+ "wasm-bindgen-futures",
+ "web-sys",
 ]
 
 [[package]]
