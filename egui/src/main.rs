@@ -6,6 +6,7 @@ use crate::components::{
 };
 
 mod components;
+mod state;
 
 fn main() {
     let native_options = eframe::NativeOptions {
@@ -61,6 +62,10 @@ impl Default for MyEguiApp {
 }
 
 impl MyEguiApp {
+    fn set_callback_counter(&mut self, val: u8) {
+        self.callback.counter = val;
+    }
+
     fn new(cc: &eframe::CreationContext<'_>) -> Self {
         // Customize egui here with cc.egui_ctx.set_fonts and cc.egui_ctx.set_visuals.
         // Restore app state using cc.storage (requires the "persistence" feature).
