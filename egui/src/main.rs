@@ -61,8 +61,10 @@ impl MyEguiApp {
 impl eframe::App for MyEguiApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
-            navbar(ui, self);
-            router(ui, self);
+            ui.vertical_centered(|ui| {
+                navbar(ui, self);
+                router(ui, self);
+            });
         });
     }
 }
