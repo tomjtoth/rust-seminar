@@ -11,6 +11,7 @@ fn main() {
     let native_options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder {
             inner_size: Some(Vec2::new(640.0, 480.0)),
+            min_inner_size: Some(Vec2::new(320.0, 240.0)),
             ..Default::default()
         },
         ..Default::default()
