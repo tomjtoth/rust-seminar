@@ -26,6 +26,7 @@ fn main() {
 
 struct MyEguiApp {
     counters: [u8; 3],
+    global_counter: i8,
     view: View,
     text: String,
     context_provider_values: [&'static str; 2],
@@ -35,6 +36,7 @@ impl Default for MyEguiApp {
     fn default() -> Self {
         MyEguiApp {
             counters: [0; 3],
+            global_counter: 0,
             view: View::Counters,
             text: String::new(),
             context_provider_values: ["orange", "red"],
