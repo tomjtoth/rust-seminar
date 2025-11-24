@@ -27,6 +27,7 @@ fn main() {
 struct MyEguiApp {
     counters: [u8; 3],
     view: View,
+    text: String,
 }
 
 impl Default for MyEguiApp {
@@ -34,6 +35,7 @@ impl Default for MyEguiApp {
         MyEguiApp {
             counters: [0; 3],
             view: View::Counters,
+            text: String::new(),
         }
     }
 }

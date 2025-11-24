@@ -15,6 +15,7 @@ pub enum View {
 pub fn navbar(ui: &mut Ui, state: &mut MyEguiApp) {
     ui.horizontal(|ui| {
         if ui.button("counter").clicked() {
+            // reset all if coming from a different view
             if state.view != View::Counters {
                 state.counters[0] = 0;
                 state.counters[1] = 0;
@@ -24,6 +25,10 @@ pub fn navbar(ui: &mut Ui, state: &mut MyEguiApp) {
         }
 
         if ui.button("controlled input").clicked() {
+            // reset if coming from a different view
+            if state.view != View::ControlledInput {
+                state.text.truncate(0);
+            }
             state.view = View::ControlledInput;
         }
 
