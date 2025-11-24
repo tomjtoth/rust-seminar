@@ -4,9 +4,9 @@ use crate::components::{
     navbar::{View, navbar},
     router::router,
 };
-struct CallbackState {
-    counter: u8,
-    text: String,
+pub(crate) struct CallbackState {
+    pub(crate) counter: u8,
+    pub(crate) text: String,
 }
 
 impl Default for CallbackState {
@@ -18,13 +18,13 @@ impl Default for CallbackState {
     }
 }
 
-pub(super) struct MyEguiApp {
-    counters: [u8; 3],
-    global_counter: i8,
-    view: View,
-    text: String,
-    callback: CallbackState,
-    context_provider_values: [&'static str; 2],
+pub(crate) struct MyEguiApp {
+    pub(crate) counters: [u8; 3],
+    pub(crate) global_counter: i8,
+    pub(crate) view: View,
+    pub(crate) text: String,
+    pub(crate) callback: CallbackState,
+    pub(crate) context_provider_values: [&'static str; 2],
 }
 
 impl Default for MyEguiApp {
@@ -41,7 +41,7 @@ impl Default for MyEguiApp {
 }
 
 impl MyEguiApp {
-    fn set_callback_counter(&mut self, val: u8) {
+    pub(crate) fn set_callback_counter(&mut self, val: u8) {
         self.callback.counter = val;
     }
 
