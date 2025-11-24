@@ -33,6 +33,9 @@ pub fn navbar(ui: &mut Ui, state: &mut MyEguiApp) {
         }
 
         if ui.button("context provider").clicked() {
+            if state.view != View::ContextProvider {
+                state.context_provider_values = ["orange", "red"]
+            }
             state.view = View::ContextProvider;
         }
 
