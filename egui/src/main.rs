@@ -25,15 +25,15 @@ fn main() {
 }
 
 struct MyEguiApp {
-    counter: u8,
+    counters: [u8; 3],
     view: View,
 }
 
 impl Default for MyEguiApp {
     fn default() -> Self {
         MyEguiApp {
-            counter: 0,
-            view: View::Counter,
+            counters: [0; 3],
+            view: View::Counters,
         }
     }
 }

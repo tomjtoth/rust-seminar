@@ -4,7 +4,7 @@ use crate::MyEguiApp;
 
 #[derive(PartialEq)]
 pub enum View {
-    Counter,
+    Counters,
     ControlledInput,
     ContextProvider,
     GlobalSignals,
@@ -15,10 +15,12 @@ pub enum View {
 pub fn navbar(ui: &mut Ui, state: &mut MyEguiApp) {
     ui.horizontal(|ui| {
         if ui.button("counter").clicked() {
-            if state.view != View::Counter {
-                state.counter = 0;
+            if state.view != View::Counters {
+                state.counters[0] = 0;
+                state.counters[1] = 0;
+                state.counters[2] = 0;
             }
-            state.view = View::Counter;
+            state.view = View::Counters;
         }
 
         if ui.button("controlled input").clicked() {
