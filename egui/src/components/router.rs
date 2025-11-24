@@ -3,6 +3,7 @@ use eframe::egui::Ui;
 use crate::{
     MyEguiApp,
     components::{
+        callback::component::callback_view,
         context_provider::context_providers,
         controlled_input::controlled_input,
         counters::{counters, global_counters},
@@ -16,6 +17,7 @@ pub fn router(ui: &mut Ui, state: &mut MyEguiApp) {
         ControlledInput => controlled_input(ui, state),
         ContextProvider => context_providers(ui, state),
         GlobalSignals => global_counters(ui, state),
+        Callback => callback_view(ui, state),
         _ => (),
     }
 }

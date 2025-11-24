@@ -24,11 +24,26 @@ fn main() {
     );
 }
 
+struct CallbackState {
+    counter: u8,
+    text: String,
+}
+
+impl Default for CallbackState {
+    fn default() -> Self {
+        CallbackState {
+            counter: 0,
+            text: String::from("initial"),
+        }
+    }
+}
+
 struct MyEguiApp {
     counters: [u8; 3],
     global_counter: i8,
     view: View,
     text: String,
+    callback: CallbackState,
     context_provider_values: [&'static str; 2],
 }
 
@@ -39,6 +54,7 @@ impl Default for MyEguiApp {
             global_counter: 0,
             view: View::Counters,
             text: String::new(),
+            callback: Default::default(),
             context_provider_values: ["orange", "red"],
         }
     }

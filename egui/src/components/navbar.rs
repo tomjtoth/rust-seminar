@@ -40,10 +40,14 @@ pub fn navbar(ui: &mut Ui, state: &mut MyEguiApp) {
         }
 
         if ui.button("global signals").clicked() {
+            // not resetting on view change
             state.view = View::GlobalSignals;
         }
 
         if ui.button("callback").clicked() {
+            if state.view != View::Callback {
+                state.callback = Default::default();
+            }
             state.view = View::Callback;
         }
 
