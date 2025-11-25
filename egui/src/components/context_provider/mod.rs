@@ -11,7 +11,7 @@ pub fn context_providers(ui: &mut Ui, state: &mut MyEguiApp) {
         child::child(ui, state, "green", 0);
     });
 
-    parent::parent(ui, state, "red", 0, |ui, state| {
+    parent::parent(ui, state, "red", 1, |ui, state| {
         child::child(ui, state, "blue", 1);
         child::child(ui, state, "yellow", 1);
     });

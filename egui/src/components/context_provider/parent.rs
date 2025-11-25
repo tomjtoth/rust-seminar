@@ -21,6 +21,6 @@ pub fn parent(
 
         ui.vertical(|ui| {
             children(ui, state);
-        })
+        });
     });
 }
