@@ -1,3 +1,5 @@
+"use client";
+
 import Counter from "./_components/counter";
 
 export default function Counters() {
