@@ -1,12 +1,12 @@
 use dioxus::prelude::*;
 
-use crate::services::get_string_from_server;
+use crate::services::{roundtrip, Value::Str};
 
 #[component]
 pub fn Future() -> Element {
     let mut value = use_signal(|| String::new());
     let mut fut = use_future(move || async move {
-        if let Ok(str) = get_string_from_server(Some(1000), false).await {
+        if let Ok(Str(str)) = roundtrip(Str(String::from("initial value from server"))).await {
             value.set(str);
         }
     });
@@ -17,7 +17,11 @@ pub fn Future() -> Element {
 
             input {
                 value,
-                oninput: move |evt| value.set(evt.value()),
+                oninput: move |evt| async move {
+                    if let Ok(Str(val)) = roundtrip(Str(evt.value())).await {
+                        value.set(val)
+                    }
+                },
                 placeholder: "type here"
             }
         }

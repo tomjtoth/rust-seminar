@@ -1,9 +1,7 @@
 use dioxus::prelude::*;
 
-use crate::components::global_signal::buttons::Incrementer;
-
+mod buttons;
 mod futures;
-mod nullifiers;
 
 #[component]
 pub fn FullstackExamples() -> Element {
@@ -14,25 +12,24 @@ pub fn FullstackExamples() -> Element {
             class,
 
             // DEMO: passed as Some(String)
-            Incrementer { increment_by: 16, title: Some("manipulates the previously seen global signal".to_string()) }
+            buttons::FsIncrementer { increment_by: 16, title: Some("manipulates the previously seen global signal".to_string()) }
 
             // passed as String
-            Incrementer { increment_by: 8, title: "same as above".to_string() }
+            buttons::FsIncrementer { increment_by: 8, title: "same as above".to_string() }
 
             // CANNOT pass Some(&str)
-            // Incrementer { increment_by: 4, title: Some("same as above") }
+            // buttons::FsIncrementer { increment_by: 4, title: Some("same as above") }
 
             // passed as &str
-            Incrementer { increment_by: 4, title: "same as above" }
+            buttons::FsIncrementer { increment_by: 4, title: "same as above" }
 
             // passed None
-            Incrementer { increment_by: 2, title: None }
+            buttons::FsIncrementer { increment_by: 2, title: None }
 
             // omitted
-            Incrementer { increment_by: 1 }
+            buttons::FsIncrementer { increment_by: 1 }
 
-            nullifiers::SimpleNullifier {}
-            nullifiers::FancyNullifier {}
+            buttons::FsNullifier {}
         }
 
         div {
