@@ -11,7 +11,7 @@ pub fn Incrementer(increment_by: i8) -> Element {
     rsx! {
         button {
             disabled,
-            class: if disabled { "cursor-not-allowed! text-gray-200" },
+            class: if disabled { "cursor-not-allowed! text-gray-200 dark:text-gray-800" },
             onclick: move |_| *COUNTER.write() += increment_by,
             "{COUNTER} {operator} {increment_by.abs()}"
         }

@@ -12,7 +12,11 @@ export function Incrementer({ incrementBy }: { incrementBy: number }) {
       {...{
         disabled,
 
-        ...(disabled ? { className: "cursor-not-allowed! text-gray-200" } : {}),
+        ...(disabled
+          ? {
+              className: "cursor-not-allowed! text-gray-200 dark:text-gray-800",
+            }
+          : {}),
 
         onClick() {
           cx.inc(incrementBy);
