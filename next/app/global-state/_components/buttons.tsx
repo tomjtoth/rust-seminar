@@ -1,12 +1,6 @@
 import { useGlobalCounter } from "@/app/_lib/store";
 
-export function Incrementer({
-  incrementBy,
-  title,
-}: {
-  incrementBy: number;
-  title?: string;
-}) {
+export function Incrementer({ incrementBy }: { incrementBy: number }) {
   const cx = useGlobalCounter();
 
   const op = incrementBy > 0 ? "+" : "-";
@@ -17,7 +11,6 @@ export function Incrementer({
     <button
       {...{
         disabled,
-        title,
 
         ...(disabled ? { className: "cursor-not-allowed! text-gray-200" } : {}),
 
