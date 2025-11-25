@@ -6,7 +6,12 @@ use crate::services::{roundtrip, Value::Str};
 pub fn Future() -> Element {
     let mut value = use_signal(|| String::new());
     let mut fut = use_future(move || async move {
-        if let Ok(Str(str)) = roundtrip(Str(String::from("initial value from server"))).await {
+        if let Ok(Str(str)) = roundtrip(
+            Str(String::from("value from initial roundtrip")),
+            Some(1000),
+        )
+        .await
+        {
             value.set(str);
         }
     });
@@ -18,7 +23,7 @@ pub fn Future() -> Element {
             input {
                 value,
                 oninput: move |evt| async move {
-                    if let Ok(Str(val)) = roundtrip(Str(evt.value())).await {
+                    if let Ok(Str(val)) = roundtrip(Str(evt.value()),None).await {
                         value.set(val)
                     }
                 },

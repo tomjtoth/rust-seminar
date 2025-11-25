@@ -8,6 +8,10 @@ pub enum Value {
 }
 
 #[server]
-pub async fn roundtrip(value: Value) -> Result<Value, ServerFnError> {
+pub async fn roundtrip(value: Value, delay: Option<u32>) -> Result<Value, ServerFnError> {
+    if let Some(millis) = delay {
+        crate::utils::std_sleep(millis);
+    }
+
     Ok(value)
 }
