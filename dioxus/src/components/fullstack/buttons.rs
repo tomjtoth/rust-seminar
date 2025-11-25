@@ -15,7 +15,7 @@ pub fn FsIncrementer(increment_by: i8, title: Option<String>) -> Element {
         button {
             disabled,
             title,
-            class: if disabled { "cursor-not-allowed! text-gray-200" },
+            class: if disabled { "cursor-not-allowed! text-gray-200 dark:text-gray-800" },
             onclick: move |_| async move {
                 if let Ok(I8(val)) = roundtrip(I8(increment_by),None).await {
                     *COUNTER.write() += val
