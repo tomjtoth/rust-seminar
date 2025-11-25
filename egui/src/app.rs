@@ -35,7 +35,7 @@ impl Default for MyEguiApp {
             view: View::Counters,
             text: String::new(),
             callback: Default::default(),
-            context_provider_values: ["orange", "red"],
+            context_provider_values: ["green", "red"],
         }
     }
 }
