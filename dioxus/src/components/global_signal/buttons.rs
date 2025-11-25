@@ -12,8 +12,7 @@ pub fn Incrementer(increment_by: i8, title: Option<String>) -> Element {
         button {
             disabled,
             title,
-            class: if disabled { "text-gray-200" },
-            style: if disabled { "cursor: not-allowed;" },
+            class: if disabled { "cursor-not-allowed! text-gray-200" },
             onclick: move |_| *COUNTER.write() += increment_by,
             "{COUNTER} {operator} {increment_by.abs()}"
         }

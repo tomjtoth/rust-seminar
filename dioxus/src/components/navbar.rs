@@ -9,11 +9,11 @@ pub fn NavBar() -> Element {
             ul {
                 class: "p-2 flex gap-2 *:border *:rounded **:p-2",
 
-                li { Link {to: Route::CountersView {}, "counter"} }
+                li { Link {to: Route::CountersView {}, "counters"} }
                 li { Link {to: Route::ControlledInput {}, "controlled input"} }
                 li { Link {to: Route::ContextProvider {}, "context providers"} }
                 li { Link {to: Route::FnGlobalSignal {}, "global signals"} }
-                li { Link {to: Route::CallbackComponent {}, "callback"} }
+                li { Link {to: Route::CallbackComponent {}, "callbacks"} }
                 li { Link {to: Route::FullstackExamples {}, "fullstack"} }
             }
         }
