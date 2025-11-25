@@ -9,7 +9,7 @@ pub enum View {
     ContextProvider,
     GlobalSignals,
     Callback,
-    Fullstack,
+    // Fullstack,
 }
 
 pub fn navbar(ui: &mut Ui, state: &mut MyEguiApp) {
@@ -51,8 +51,8 @@ pub fn navbar(ui: &mut Ui, state: &mut MyEguiApp) {
             state.view = View::Callback;
         }
 
-        if ui.button("fullstack").clicked() {
-            state.view = View::Fullstack;
-        }
+        // if ui.button("fullstack").clicked() {
+        //     state.view = View::Fullstack;
+        // }
     });
 }
