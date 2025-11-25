@@ -6,7 +6,7 @@ mod app;
 mod components;
 mod state;
 
-#[cfg(not(target_arch = "wasm32"))]
+#[cfg(all(not(target_arch = "wasm32"), not(target_os = "android")))]
 fn main() {
     let native_options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder {

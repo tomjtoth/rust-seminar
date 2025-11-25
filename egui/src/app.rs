@@ -59,6 +59,9 @@ impl eframe::App for MyEguiApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
             ui.vertical_centered(|ui| {
+                #[cfg(target_os = "android")]
+                ui.add_space(20.);
+
                 navbar(ui, self);
                 ui.add_space(10.);
                 router(ui, self);
