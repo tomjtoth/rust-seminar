@@ -45,17 +45,12 @@ impl MyEguiApp {
         self.callback.counter = val;
     }
 
-    pub(super) fn new(cc: &eframe::CreationContext<'_>) -> Self {
+    pub(super) fn new(_cc: &eframe::CreationContext<'_>) -> Self {
         // Customize egui here with cc.egui_ctx.set_fonts and cc.egui_ctx.set_visuals.
         // Restore app state using cc.storage (requires the "persistence" feature).
         // Use the cc.gl (a glow::Context) to create graphics shaders and buffers that you can use
         // for e.g. egui::PaintCallback.
 
-        let mut style = (*cc.egui_ctx.style()).clone();
-
-        style.visuals.panel_fill = egui::Color32::LIGHT_GRAY;
-
-        cc.egui_ctx.set_style(style);
         Self::default()
     }
 }
@@ -65,6 +60,7 @@ impl eframe::App for MyEguiApp {
         egui::CentralPanel::default().show(ctx, |ui| {
             ui.vertical_centered(|ui| {
                 navbar(ui, self);
+                ui.add_space(10.);
                 router(ui, self);
             });
         });

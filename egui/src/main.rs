@@ -1,4 +1,4 @@
-use eframe::egui::{self, Vec2};
+use eframe::egui::{self, Style, Vec2, Visuals};
 
 use crate::app::MyEguiApp;
 
@@ -20,7 +20,14 @@ fn main() {
     let _ = eframe::run_native(
         "Rust seminar - egui",
         native_options,
-        Box::new(|cc| Ok(Box::new(MyEguiApp::new(cc)))),
+        Box::new(|cc| {
+            let style = Style {
+                visuals: Visuals::light(),
+                ..Style::default()
+            };
+            cc.egui_ctx.set_style(style);
+            Ok(Box::new(MyEguiApp::new(cc)))
+        }),
     );
 }
 
