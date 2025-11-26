@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-pub mod counter;
+mod counter;
 
 #[component]
 pub fn CountersView() -> Element {

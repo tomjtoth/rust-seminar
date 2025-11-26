@@ -11,7 +11,9 @@ pub fn Counter() -> Element {
                 class: "w-fit inline-block",
                 title: "increment by one",
                 onclick: move |_| {
-                    counter.with_mut(|inner| *inner = inner.checked_add(1).unwrap_or(0))
+                    counter.with_mut(|inner| {
+                        *inner = inner.checked_add(1).unwrap_or(0)
+                    })
                 },
                 "{counter}++"
             }
