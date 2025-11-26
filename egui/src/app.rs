@@ -1,7 +1,7 @@
 use eframe::egui;
 
-use crate::components::{
-    navbar::{View, navbar},
+use crate::{
+    components::navbar::{View, navbar},
     router::router,
 };
 pub(crate) struct CallbackState {

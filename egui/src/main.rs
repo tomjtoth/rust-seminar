@@ -4,6 +4,7 @@ use crate::app::MyEguiApp;
 
 mod app;
 mod components;
+mod router;
 mod state;
 
 #[cfg(all(not(target_arch = "wasm32"), not(target_os = "android")))]
