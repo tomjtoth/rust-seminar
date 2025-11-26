@@ -13,8 +13,8 @@ pub fn NavBar() -> Element {
                 li { Link {to: Route::ControlledInput {}, "controlled input"} }
                 li { Link {to: Route::ContextProvider {}, "context providers"} }
                 li { Link {to: Route::GlobalState {}, "global state"} }
-                li { Link {to: Route::CallbackComponent {}, "callbacks"} }
-                li { Link {to: Route::FullstackExamples {}, "fullstack"} }
+                li { Link {to: Route::Callbacks {}, "callbacks"} }
+                li { Link {to: Route::Fullstack {}, "fullstack"} }
             }
         }
 

@@ -4,7 +4,7 @@ mod buttons;
 mod futures;
 
 #[component]
-pub fn FullstackExamples() -> Element {
+pub fn Fullstack() -> Element {
     let class = "border rounded p-2 flex flex-col gap-2 [&_button]:w-fit items-center";
 
     rsx! {

@@ -1,9 +1,9 @@
 use dioxus::prelude::*;
 
 use crate::components::{
-    callback::component::CallbackComponent, container::Container,
-    context_provider::ContextProvider, controlled_input::ControlledInput, counters::CountersView,
-    fullstack::FullstackExamples, global_state::GlobalState, navbar::NavBar,
+    callback::Callbacks, container::Container, context_provider::ContextProvider,
+    controlled_input::ControlledInput, counters::CountersView, fullstack::Fullstack,
+    global_state::GlobalState, navbar::NavBar,
 };
 
 #[derive(Clone, Routable)]
@@ -24,8 +24,8 @@ pub enum Route {
     GlobalState {},
 
     #[route("/callback")]
-    CallbackComponent {},
+    Callbacks {},
 
     #[route("/fullstack")]
-    FullstackExamples {},
+    Fullstack {},
 }
