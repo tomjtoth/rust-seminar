@@ -6,7 +6,10 @@ import { useExternalLogic } from "./_lib";
 
 export default function Callbacks() {
   const [text, setText] = useState("initial");
-  const handler = useExternalLogic();
+  const externalLogic = useExternalLogic();
+
+  // DEMO: rm number typing
+  const localLogic = (idx: number) => setText(`done-${idx}`);
 
   return (
     <>
@@ -14,7 +17,7 @@ export default function Callbacks() {
 
       <button
         onClick={() => {
-          handler((idx) => setText(`done-${idx}`));
+          externalLogic(localLogic);
         }}
       >
         trigger callback

@@ -3,7 +3,7 @@ use eframe::egui::Ui;
 use crate::{
     MyEguiApp,
     components::{
-        callback::component::callbacks, context_provider::context_providers,
+        callback::callbacks, context_provider::context_providers,
         controlled_input::controlled_input, counters::counters, global_counters::global_state,
         navbar::View::*,
     },

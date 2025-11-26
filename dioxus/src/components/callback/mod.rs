@@ -8,7 +8,10 @@ use crate::components::callback::handler::use_external_logic;
 pub fn Callbacks() -> Element {
     let mut text = use_signal(|| "initial".to_string());
 
-    let mut handler = use_external_logic();
+    let mut external_logic = use_external_logic();
+
+    let local_logic =
+        move |safely_incremented_index| text.set(format!("done-{safely_incremented_index}"));
 
     rsx! {
         div {
@@ -16,9 +19,7 @@ pub fn Callbacks() -> Element {
         }
 
         button {
-            onclick: move |_| handler(move |safely_incremented_index| {
-                text.set(format!("done-{safely_incremented_index}"))
-            }),
+            onclick: move |_| external_logic(local_logic),
 
             "trigger callback"
         }
