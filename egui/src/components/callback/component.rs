@@ -2,7 +2,7 @@ use eframe::egui::Ui;
 
 use crate::{MyEguiApp, components::callback::handler::handler};
 
-pub fn callback_view(ui: &mut Ui, state: &mut MyEguiApp) {
+pub fn callbacks(ui: &mut Ui, state: &mut MyEguiApp) {
     ui.label(state.callback.text.clone());
 
     let mut res: Option<String> = None;
