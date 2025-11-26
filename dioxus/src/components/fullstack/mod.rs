@@ -12,7 +12,7 @@ pub fn FullstackExamples() -> Element {
             class,
 
             // DEMO: passed as Some(String)
-            buttons::FsIncrementer { increment_by: 16, title: Some("manipulates the previously seen global signal".to_string()) }
+            buttons::FsIncrementer { increment_by: 16, title: Some("manipulates the previously seen global state".to_string()) }
 
             // passed as String
             buttons::FsIncrementer { increment_by: 8, title: "same as above".to_string() }

@@ -1,12 +1,12 @@
 use dioxus::prelude::*;
 
-use crate::components::global_signal::buttons::{Incrementer, Nullifier};
+use crate::components::global_state::buttons::{Incrementer, Nullifier};
 
 pub mod buttons;
 pub mod model;
 
 #[component]
-pub fn FnGlobalSignal() -> Element {
+pub fn GlobalState() -> Element {
     rsx! {
         Incrementer { increment_by: 20 }
         Incrementer { increment_by: 10 }

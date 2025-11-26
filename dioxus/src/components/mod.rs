@@ -6,5 +6,5 @@ pub mod counters;
 #[cfg(feature = "desktop")]
 pub mod desktop;
 pub mod fullstack;
-pub mod global_signal;
+pub mod global_state;
 pub mod navbar;

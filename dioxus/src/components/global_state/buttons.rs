@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-use crate::components::global_signal::model::*;
+use crate::components::global_state::model::*;
 
 #[component]
 pub fn Incrementer(increment_by: i8) -> Element {

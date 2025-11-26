@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 
 use crate::{
-    components::global_signal::model::COUNTER,
+    components::global_state::model::COUNTER,
     services::{roundtrip, Value::I8},
 };
 

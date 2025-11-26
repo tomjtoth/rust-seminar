@@ -6,7 +6,7 @@ use global_counter::global_counter;
 
 mod global_counter;
 
-pub fn global_counters(ui: &mut Ui, state: &mut MyEguiApp) {
+pub fn global_state(ui: &mut Ui, state: &mut MyEguiApp) {
     global_counter(ui, state, 20);
     global_counter(ui, state, 10);
     global_counter(ui, state, 5);

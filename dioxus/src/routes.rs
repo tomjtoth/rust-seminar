@@ -3,7 +3,7 @@ use dioxus::prelude::*;
 use crate::components::{
     callback::component::CallbackComponent, container::Container,
     context_provider::ContextProvider, controlled_input::ControlledInput, counters::CountersView,
-    fullstack::FullstackExamples, global_signal::FnGlobalSignal, navbar::NavBar,
+    fullstack::FullstackExamples, global_state::GlobalState, navbar::NavBar,
 };
 
 #[derive(Clone, Routable)]
@@ -21,7 +21,7 @@ pub enum Route {
     ContextProvider {},
 
     #[route("/global-signal")]
-    FnGlobalSignal {},
+    GlobalState {},
 
     #[route("/callback")]
     CallbackComponent {},

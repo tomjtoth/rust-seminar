@@ -7,7 +7,7 @@ pub enum View {
     Counters,
     ControlledInput,
     ContextProviders,
-    GlobalSignals,
+    GlobalState,
     Callbacks,
     // Fullstack,
 }
@@ -39,9 +39,9 @@ pub fn navbar(ui: &mut Ui, state: &mut MyEguiApp) {
             state.view = View::ContextProviders;
         }
 
-        if ui.button("global signals").clicked() {
+        if ui.button("global state").clicked() {
             // not resetting on view change
-            state.view = View::GlobalSignals;
+            state.view = View::GlobalState;
         }
 
         if ui.button("callbacks").clicked() {

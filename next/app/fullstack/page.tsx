@@ -12,7 +12,7 @@ export default function Fullstack() {
       <div className={cls}>
         <Incrementer
           incrementBy={16}
-          title="manipulates the previously seen global signal"
+          title="manipulates the previously seen global state"
         />
 
         <Incrementer incrementBy={8} title="same as above" />
