@@ -5,6 +5,9 @@ type CounterState = {
   inc: (num: number) => void;
 };
 
+/**
+ * DEMO: closest thing to global signals in Dx
+ */
 export const useGlobalCounter = create<CounterState>((set) => ({
   count: 0,
   inc(num) {
