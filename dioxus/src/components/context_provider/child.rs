@@ -3,9 +3,9 @@ use dioxus::prelude::*;
 use crate::components::context_provider::parent::ParentContext;
 
 #[component]
-pub fn Child(bg: &'static str) -> Element {
+pub fn Child(class: &'static str) -> Element {
     let mut parent_bg = use_context::<ParentContext>().bg;
-    let color = bg.split('-').nth(1).unwrap();
+    let color = class.split('-').nth(1).unwrap();
 
     rsx! {
         p {
@@ -13,9 +13,9 @@ pub fn Child(bg: &'static str) -> Element {
         }
 
         button {
-            class: bg,
-            onclick: move |_| parent_bg.set(bg.to_string()),
-            "set bg of this parent to {color}"
+            class,
+            onclick: move |_| parent_bg.set(class.to_string()),
+            "set bg of parent to {color}"
         }
     }
 }

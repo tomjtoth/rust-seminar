@@ -16,6 +16,8 @@ pub fn parent(
             "green" => Color32::LIGHT_GREEN,
             "blue" => Color32::LIGHT_BLUE,
             "yellow" => Color32::LIGHT_YELLOW,
+
+            // "orange"
             _ => Color32::from_rgb(255, 200, 150),
         };
 
@@ -23,7 +25,7 @@ pub fn parent(
         ui.style_mut().visuals.widgets.inactive.weak_bg_fill = color;
 
         ui.horizontal(|ui| {
-            if ui.button(format!("set bg to {}", bg)).clicked() {
+            if ui.button(format!("set buttons to {}", bg)).clicked() {
                 state.context_provider_values[idx] = bg;
             }
 

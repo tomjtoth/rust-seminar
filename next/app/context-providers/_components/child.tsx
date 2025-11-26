@@ -24,7 +24,7 @@ export default function Child({
       </p>
 
       <button className={cls0} onClick={() => setParentCls(cls0)}>
-        set bg of this parent to {color}
+        set bg of parent to {color}
       </button>
     </>
   );

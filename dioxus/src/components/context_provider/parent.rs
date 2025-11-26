@@ -8,21 +8,21 @@ pub(super) struct ParentContext {
 // DEMO: `children: Element``
 
 #[component]
-pub fn Parent(children: Element, bg: &'static str) -> Element {
-    let mut sig_bg = use_signal(|| bg.to_string());
+pub fn Parent(children: Element, class: &'static str) -> Element {
+    let mut sig_bg = use_signal(|| class.to_string());
     use_context_provider(|| ParentContext { bg: sig_bg });
 
     use_effect(move || tracing::debug!("current bg: {sig_bg}"));
 
-    let color = bg.split('-').nth(1).unwrap();
+    let color = class.split('-').nth(1).unwrap();
 
     rsx! {
         div {
             class: "flex p-2 gap-2",
 
             button {
-                class: bg,
-                onclick: move |_| sig_bg.set(bg.to_string()),
+                class,
+                onclick: move |_| sig_bg.set(class.to_string()),
                 "set bg of this to {color}"
             }
 
