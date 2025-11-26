@@ -8,7 +8,7 @@ pub fn Future() -> Element {
     let mut fut = use_future(move || async move {
         if let Ok(Str(str)) = roundtrip(
             Str(String::from("value from initial roundtrip")),
-            Some(1000),
+            Some(2000),
         )
         .await
         {
@@ -18,7 +18,7 @@ pub fn Future() -> Element {
 
     rsx! {
         label {
-            "use_future: "
+            "use_future for async ops: "
 
             input {
                 value,
@@ -37,7 +37,7 @@ pub fn Future() -> Element {
             onclick: move |_| async move {
                 fut.restart();
             },
-            "reset future"
+            "reset slowly"
         }
     }
 }

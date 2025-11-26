@@ -3,7 +3,7 @@
 [web.app]
 
 # HTML title tag content
-title = "rust-seminar"
+title = "Rust seminar - Dioxus"
 
 # include `assets` in web platform
 [web.resource]

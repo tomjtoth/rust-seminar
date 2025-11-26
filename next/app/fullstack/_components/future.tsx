@@ -13,7 +13,7 @@ export default function Future() {
   return (
     <>
       <label>
-        useFuture:{" "}
+        useEffect for async ops:{" "}
         <input
           type="text"
           placeholder="type here"
@@ -23,7 +23,7 @@ export default function Future() {
       </label>
 
       <button className="inline-block" onClick={() => setTrip(1 - trip)}>
-        reset future
+        reset slowly
       </button>
     </>
   );
