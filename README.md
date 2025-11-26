@@ -120,7 +120,7 @@ Compared the below 3 and implement basic components:
 
 ## Bonus
 
-Misc. remarks, setup steps for each platform (desktop, web, Android) on both [Dioxus](./dioxus/README.md) and [egui](./egui/README.md) (and [Next](./next/README.md) - web only..).
+Misc. remarks, setup steps for each platform (desktop, web, Android) on both [Dioxus](./dioxus/README.md) and [egui](./egui/README.md) (and [Next](./next/README.md) - web only..).  
 And my halfway-migrated (then scrapped) [GitHub Pages](https://github.com/tomjtoth/tomjtoth.github.io/tree/dioxus) from January.
 
 ## Thanks for reading
