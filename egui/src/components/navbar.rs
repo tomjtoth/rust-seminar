@@ -14,7 +14,7 @@ pub enum View {
 
 pub fn navbar(ui: &mut Ui, state: &mut MyEguiApp) {
     ui.horizontal(|ui| {
-        if ui.button("counter").clicked() {
+        if ui.button("counters").clicked() {
             // reset all if coming from a different view
             if state.view != View::Counters {
                 state.counters[0] = 0;
@@ -32,7 +32,7 @@ pub fn navbar(ui: &mut Ui, state: &mut MyEguiApp) {
             state.view = View::ControlledInput;
         }
 
-        if ui.button("context provider").clicked() {
+        if ui.button("context providers").clicked() {
             if state.view != View::ContextProvider {
                 state.context_provider_values = ["green", "red"]
             }
@@ -44,7 +44,7 @@ pub fn navbar(ui: &mut Ui, state: &mut MyEguiApp) {
             state.view = View::GlobalSignals;
         }
 
-        if ui.button("callback").clicked() {
+        if ui.button("callbacks").clicked() {
             if state.view != View::Callback {
                 state.callback = Default::default();
             }
