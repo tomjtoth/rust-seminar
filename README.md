@@ -30,7 +30,7 @@ Looking for a GUI framework with the below personal critera on [Are We GUI Yet?]
 
 ### [Immediate mode](<https://en.wikipedia.org/wiki/Immediate_mode_(computer_graphics)>)
 
-Quite "new" design approach, surfaced around ~2000
+A "newer" design approach, surfaced around ~2000
 
 - upon client calls UI elements are rendered directly and reconstructed from ground up on
 
@@ -120,7 +120,7 @@ Compared the below 3 and implement basic components:
 
 ## Bonus
 
-Misc. remarks, setup steps on both [Dioxus](./dioxus/README.md) and [egui](./egui/README.md) (and [Next](./next/README.md)).
+Misc. remarks, setup steps for each platform (desktop, web, Android) on both [Dioxus](./dioxus/README.md) and [egui](./egui/README.md) (and [Next](./next/README.md) - web only..).
 And my halfway-migrated (then scrapped) [GitHub Pages](https://github.com/tomjtoth/tomjtoth.github.io/tree/dioxus) from January.
 
 ## Thanks for reading
