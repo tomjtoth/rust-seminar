@@ -2,6 +2,19 @@
 
 This is a Dioxus demo for a HY course, managing to get the same codebase to be served over the browser, desktop and Android.
 
+## likes
+
+- familiar control flow
+- more versatile use of state
+  - read/write global state in the same "go" via opening `{ .. }` anywhere
+- compiling to different platforms requires no research
+
+## dislikes
+
+- additional command line tool needed
+  - `cargo-binstall dioxus-cli --version 0.6`
+- server functions create additional api endpoints
+
 ## Styles via Tailwind CSS
 
 Run the below commands:
@@ -47,7 +60,7 @@ Followed [this guide](https://dioxuslabs.com/learn/0.6/guides/mobile/#android) w
 
 ### Serving Your App
 
-Run one of the following commands in the root of the project to start developing for
+Run one of the following commands in the root of the project (./dioxus/) to start developing for
 
 - the web:
 
