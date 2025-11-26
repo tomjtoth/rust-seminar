@@ -6,9 +6,9 @@ use crate::MyEguiApp;
 pub enum View {
     Counters,
     ControlledInput,
-    ContextProvider,
+    ContextProviders,
     GlobalSignals,
-    Callback,
+    Callbacks,
     // Fullstack,
 }
 
@@ -33,10 +33,10 @@ pub fn navbar(ui: &mut Ui, state: &mut MyEguiApp) {
         }
 
         if ui.button("context providers").clicked() {
-            if state.view != View::ContextProvider {
+            if state.view != View::ContextProviders {
                 state.context_provider_values = ["green", "red"]
             }
-            state.view = View::ContextProvider;
+            state.view = View::ContextProviders;
         }
 
         if ui.button("global signals").clicked() {
@@ -45,10 +45,10 @@ pub fn navbar(ui: &mut Ui, state: &mut MyEguiApp) {
         }
 
         if ui.button("callbacks").clicked() {
-            if state.view != View::Callback {
+            if state.view != View::Callbacks {
                 state.callback = Default::default();
             }
-            state.view = View::Callback;
+            state.view = View::Callbacks;
         }
 
         // if ui.button("fullstack").clicked() {
