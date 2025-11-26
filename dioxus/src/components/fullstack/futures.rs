@@ -8,7 +8,7 @@ pub fn Future() -> Element {
     let mut fut = use_future(move || async move {
         if let Ok(Str(str)) = roundtrip(
             Str(String::from("value from initial roundtrip")),
-            Some(2000),
+            Some(1000),
         )
         .await
         {

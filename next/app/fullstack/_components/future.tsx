@@ -7,7 +7,7 @@ export default function Future() {
   const [trip, setTrip] = useState(0);
 
   useEffect(() => {
-    roundtrip("value from initial roundtrip", 2000).then(setValue);
+    roundtrip("value from initial roundtrip", 1000).then(setValue);
   }, [trip]);
 
   return (
