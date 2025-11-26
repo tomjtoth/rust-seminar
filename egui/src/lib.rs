@@ -2,6 +2,7 @@ use crate::app::MyEguiApp;
 
 mod app;
 mod components;
+mod router;
 mod state;
 
 #[cfg(target_os = "android")]
