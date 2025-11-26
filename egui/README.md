@@ -22,13 +22,17 @@ A very exhaustive online demo can be found [here](https://www.egui.rs/), taking 
 - unfamiliar/impossible(?) styling
   - 2 adjacent blocks centered horizontally
   - colored buttons? [WiP](https://github.com/emilk/egui/issues/3284)
-- callback more complex due to mutation of state
+- [callback example](./src/components/callback/mod.rs#L10,18,24-26) more complex due to mutation of state
 - setting up for web is complex
   - but works out of the box
   - [reference](https://github.com/emilk/eframe_template)
 - setting up for android
   - [reference](https://github.com/fredrik-hammar/egui-android-demo)
   - failed to custom-tailor to this demo
+  - to continue Android development
+    ```sh
+    git revert 32d5d40535aefbc52d68203d0ff6d2c3707be485
+    ```
 
 ## Running on the desktop (ArchLinux)
 

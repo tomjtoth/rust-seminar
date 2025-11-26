@@ -60,7 +60,7 @@ Followed [this guide](https://dioxuslabs.com/learn/0.6/guides/mobile/#android) w
 
 ### Serving Your App
 
-Run one of the following commands in the root of the project (./dioxus/) to start developing for
+Run one of the following commands in the root of the project to start developing for
 
 - the web:
 

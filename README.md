@@ -86,7 +86,7 @@ Compared the below 3 and implement basic components:
 
 - [next](./next/app/counters/page.tsx)
 - [dx](./dioxus/src/components/counters/mod.rs)
-- [egui](./egui/src/components/counters/mod.rs) - resets state in navbar
+- [egui](./egui/src/components/counters/mod.rs) - resetting state manually in navbar
 
 ### Controlled input
 
@@ -98,7 +98,7 @@ Compared the below 3 and implement basic components:
 
 - [next](./next/app/context-providers/page.tsx)
 - [dx](./dioxus/src/components/context_provider/mod.rs)
-- [egui](./egui/src/components/context_provider/mod.rs) - resets state in navbar
+- [egui](./egui/src/components/context_provider/mod.rs) - resetting state manually in navbar
 
 ### Global state
 
@@ -110,7 +110,7 @@ Compared the below 3 and implement basic components:
 
 - [dx](./dioxus/src/components/callback/mod.rs)
 - [next](./next/app/callbacks/page.tsx)
-- [egui](./egui/src/components/callback/mod.rs) - resets state in navbar
+- [egui](./egui/src/components/callback/mod.rs) - resetting state manually in navbar
 
 ### Fullstack
 
@@ -120,8 +120,9 @@ Compared the below 3 and implement basic components:
 
 ## Bonus
 
-Misc. remarks on both [Dioxus](./dioxus/README.md) and [egui](./egui/README.md). And my halfway-migrated (then scrapped) [GitHub Pages](https://github.com/tomjtoth/tomjtoth.github.io/tree/dioxus) from January.
+Misc. remarks, setup steps on both [Dioxus](./dioxus/README.md) and [egui](./egui/README.md) (and [Next](./next/README.md)).
+And my halfway-migrated (then scrapped) [GitHub Pages](https://github.com/tomjtoth/tomjtoth.github.io/tree/dioxus) from January.
 
 ## Thanks for reading
 
-🙏🤓
+<span style="font-size: 50px;">🙏🤓</span>
