@@ -1,7 +1,15 @@
 # Next.js
 
-This is the reference for dioxus and egui, launch it with:
+Reference for dioxus and egui.
 
-```sh
-npm run dev
-```
+- install its deps
+
+  ```sh
+  npm install
+  ```
+
+- launch it with
+
+  ```sh
+  npm run dev
+  ```
