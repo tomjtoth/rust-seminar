@@ -1,6 +1,6 @@
 # GUI on Rust
 
-Looking for a GUI framework with the below personal critera on [Are We GUI Yet?](https://areweguiyet.com/):
+Looking for a GUI framework with the below personal critera on [Are We GUI Yet?](https://areweguiyet.com/)
 
 - must have a promising-looking download count
 - must be written in pure Rust (`*.rs` files only)
@@ -58,7 +58,7 @@ The more traditional design approach
 
 ## dioxus (vs next.js) vs egui
 
-Compare the below 3 and implement basic components:
+Compared the below 3 and implement basic components:
 
 - `dioxus`: works in _retained-mode_ and uses an enum router
 - `egui`: works in _immediate-mode_ and also uses an "enum router"
@@ -120,4 +120,8 @@ Compare the below 3 and implement basic components:
 
 ## Bonus
 
-My [GitHub Pages](https://github.com/tomjtoth/tomjtoth.github.io/tree/dioxus) from ~ january
+Misc. remarks on both [Dioxus](./dioxus/README.md) and [egui](./egui/README.md). And my halfway-migrated (then scrapped) [GitHub Pages](https://github.com/tomjtoth/tomjtoth.github.io/tree/dioxus) from January.
+
+## Thanks for reading
+
+🙏🤓
