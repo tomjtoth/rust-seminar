@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function useComplexEternalLogic() {
+export function useExternalLogic() {
   const [index, setIndex] = useState(0);
 
   return function handler(callback: (index: number) => void) {

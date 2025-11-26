@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 
-import { useComplexEternalLogic } from "./_lib";
+import { useExternalLogic } from "./_lib";
 
 export default function Callbacks() {
   const [text, setText] = useState("initial");
-  const handler = useComplexEternalLogic();
+  const handler = useExternalLogic();
 
   return (
     <>
