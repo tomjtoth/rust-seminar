@@ -15,7 +15,7 @@ pub fn ControlledInput() -> Element {
                 input {
                     class: "ml-2",
                     placeholder: "text here",
-                    oninput: move |evt| value.set(evt.value()),
+                    onchange: move |evt| value.set(evt.value()),
                     value
                 }
             }
