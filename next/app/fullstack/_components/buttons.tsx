@@ -8,11 +8,12 @@ export function Incrementer({
   incrementBy: number;
   title?: string;
 }) {
-  const cx = useGlobalCounter();
+  const globalState = useGlobalCounter();
 
   const op = incrementBy > 0 ? "+" : "-";
   const disabled =
-    cx.count + incrementBy > 127 || cx.count + incrementBy < -128;
+    globalState.count + incrementBy > 127 ||
+    globalState.count + incrementBy < -128;
 
   return (
     <button
@@ -28,11 +29,11 @@ export function Incrementer({
 
         async onClick() {
           const res = await roundtrip(incrementBy);
-          cx.inc(res);
+          globalState.inc(res);
         },
       }}
     >
-      {cx.count} {op} {Math.abs(incrementBy)}
+      {globalState.count} {op} {Math.abs(incrementBy)}
     </button>
   );
 }
