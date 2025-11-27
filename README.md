@@ -24,8 +24,8 @@ Looking for a GUI framework with the below personal critera on [Are We GUI Yet?]
 |                                _fltk_ |   1.3M    | Rust bindings for fltk                                                                                      |
 |                                _iced_ |   1.3M    | seemingly same [difficulties in styling](https://book.iced.rs/the-runtime.html#the-ice-wizard) as with egui |
 |                              imgui-rs |   832k    | [Rust bindings to the C++ lib](https://github.com/ocornut/imgui) (immediate)                                |
-| [**dioxus**](https://dioxuslabs.com/) |   841k    | React-clone                                                                                                 |
-|                                 slint |   762k    | [components declared via DSL](https://docs.slint.dev/latest/docs/slint/tutorial/memory_tile/)               |
+| [**dioxus**](https://dioxuslabs.com/) |   844k    | React-clone                                                                                                 |
+|                                 slint |   763k    | [components declared via DSL](https://docs.slint.dev/latest/docs/slint/tutorial/memory_tile/)               |
 |                                  crux |   177k    | ignored (wait for more DLs)                                                                                 |
 
 ### [Immediate mode](<https://en.wikipedia.org/wiki/Immediate_mode_(computer_graphics)>)

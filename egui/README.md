@@ -21,7 +21,7 @@ A very exhaustive online demo can be found [here](https://www.egui.rs/), taking 
   - allocating in [app.rs](./src/app.rs#L30-41), resetting in [navbar.rs](./src/components/navbar.rs)
 - unfamiliar/impossible(?) styling
   - 2 adjacent blocks centered horizontally
-  - colored buttons? [WiP](https://github.com/emilk/egui/issues/3284)
+  - colored buttons? [WiP](https://github.com/emilk/egui/issues/3284) or [this answer](https://github.com/emilk/egui/discussions/4902)
 - [callback example](./src/components/callback/mod.rs#L10,18,24-26) more complex due to mutation of state
 - setting up for web is complex
   - but works out of the box
